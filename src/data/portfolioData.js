@@ -28,9 +28,10 @@ import cloneapp3 from '../assets/clone-app/clone3.jpg';
 import cloneapp4 from '../assets/clone-app/clone4.jpg';
 import cloneapp5 from '../assets/clone-app/clone5.jpg';
 import cloneapp6 from '../assets/clone-app/clone6.jpg';
-import profile1 from '../assets/gallery/Profile1.jpg';
-import profile2 from '../assets/gallery/Profile2.jpg';
-import profile3 from '../assets/gallery/Profile3.jpg';
+import profile1 from "../assets/gallery/profile1.jpg";
+
+import profile2 from '../assets/gallery/profile2.jpg';
+import profile3 from '../assets/gallery/profile3.jpg';
 import Rahul from '../assets/testimonials/rahul.jpg';
 import Ashi from '../assets/testimonials/ashi.jpg';
 import Ayush from '../assets/testimonials/ayush.jpg';
