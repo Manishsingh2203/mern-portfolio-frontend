@@ -1,0 +1,165 @@
+
+.cursorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+/* Trail dots */
+.trailDot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(0.5px);
+  box-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor;
+}
+
+/* Main cursor with multiple layers */
+.mainCursor {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.cursorInner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(102, 126, 234, 0.4);
+  z-index: 2;
+}
+
+.cursorRing {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Pointer state */
+.mainCursor.pointer .cursorInner {
+  box-shadow: 
+    0 0 20px rgba(102, 126, 234, 0.8),
+    0 0 40px rgba(102, 126, 234, 0.4);
+}
+
+.mainCursor.pointer .cursorRing {
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Clicking state */
+.mainCursor.clicking .cursorInner {
+  background: rgba(102, 126, 234, 1);
+  box-shadow: 
+    0 0 25px rgba(102, 126, 234, 1),
+    0 0 50px rgba(102, 126, 234, 0.6);
+}
+
+.mainCursor.clicking .cursorRing {
+  border-color: rgba(102, 126, 234, 0.8);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+}
+
+/* Pulse orb background effect */
+.pulseOrb {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Magnetic field effect */
+.magneticField {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Trail lines connection */
+.trailLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.trailLines line {
+  filter: blur(0.5px);
+  stroke-linecap: round;
+}
+
+/* Click ripple effect */
+.clickRipple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.6) 0%, transparent 70%);
+  border: 2px solid rgba(102, 126, 234, 0.8);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .cursorContainer {
+    display: none; /* Hide custom cursor on mobile for better UX */
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .trailDot,
+  .pulseOrb,
+  .magneticField,
+  .clickRipple {
+    display: none;
+  }
+  
+  .mainCursor {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .cursorInner {
+    background: white;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .cursorRing {
+    border-color: white;
+  }
+}

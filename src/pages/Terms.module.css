@@ -1,0 +1,501 @@
+/* Terms.module.css */
+.terms {
+  min-height: 100vh;
+  position: relative;
+ 
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.floatingOrbs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.1;
+}
+
+.orb1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #ff6b6b, #ffa500);
+  top: 10%;
+  left: 10%;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  top: 60%;
+  right: 10%;
+}
+
+.orb3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(45deg, #ffd93d, #ff9a3d);
+  bottom: 10%;
+  left: 20%;
+}
+
+.gridPattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.gradientOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(12, 12, 12, 0.9) 70%);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  padding: 4rem 0 2rem;
+}
+
+.backButtonContainer {
+  display: inline-flex;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.titleSection {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #a8a8a8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleAccent {
+   background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleUnderline {
+  width: 100px;
+  height: 4px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #a8a8a8;
+  margin: 0;
+}
+
+/* Content Styles */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sectionNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+/* License Grid */
+.licenseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.licenseCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.licenseCard:hover {
+  transform: translateY(-5px);
+}
+
+.licenseHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.licenseIcon {
+  font-size: 2rem;
+}
+
+.licenseCard h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.licenseList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.licenseList li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.licenseList li:before {
+  content: "•";
+  color: #667eea;
+  position: absolute;
+  left: 0;
+}
+
+.licenseList li:last-child {
+  border-bottom: none;
+}
+
+/* Agreement Note */
+.agreementNote {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.noteIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.agreementNote p {
+  margin: 0;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Disclaimer Content */
+.disclaimerContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.disclaimerIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+/* Limitations Content */
+.limitationsContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.limitationItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.limitationIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.limitationItem h4 {
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.limitationItem p {
+  margin: 0;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* Update Note */
+.updateNote {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.updateIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.updateNote p {
+  margin: 0;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Links Warning */
+.linksWarning {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 87, 108, 0.1);
+  border: 1px solid rgba(255, 87, 108, 0.3);
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.warningIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.linksWarning p {
+  margin: 0;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Modification Info */
+.modificationInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.infoItem {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+/* Law Content */
+.lawContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.lawIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.jurisdiction {
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  margin-top: 1rem;
+  color: #e0e0e0;
+}
+
+/* Footer */
+.pageFooter {
+  text-align: center;
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+.footerContent {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.footerContent p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.footerNote {
+  color: #a8a8a8;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .licenseGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .disclaimerContent,
+  .lawContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .limitationsContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .modificationInfo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 2rem 0 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 1rem;
+  }
+  
+  .licenseCard {
+    padding: 1.5rem;
+  }
+  
+  .agreementNote,
+  .updateNote,
+  .linksWarning {
+    flex-direction: column;
+    text-align: center;
+  }
+}

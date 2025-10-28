@@ -1,0 +1,878 @@
+
+.quickView {
+  min-height: 100vh;
+
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* Add top padding to account for fixed navbar */
+  padding-top: calc(1.5rem + 80px); /* Adjust 80px based on your navbar height */
+}
+
+/* Minimal Header - FIXED: No overlap with navbar */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* Ensure header stays below navbar */
+  position: relative;
+  z-index: 100;
+  /* Add top margin for extra safety */
+  margin-top: 1rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 101;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.projectLinks {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 101;
+}
+
+.githubLink, .liveLink {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 101;
+}
+
+.githubLink {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.liveLink {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.githubLink:hover, .liveLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  align-items: center;
+  position: relative;
+  z-index: 90;
+}
+
+/* Image Section */
+.imageSection {
+  display: flex;
+  justify-content: center;
+}
+
+.imageGallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.mainImage {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(102, 126, 234, 0.7);
+  border: none;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+  z-index: 95;
+}
+
+.prevButton {
+  left: 15px;
+}
+
+.nextButton {
+  right: 15px;
+}
+
+.imageCounter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  z-index: 95;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 90;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  background: #1a1a1a;
+  padding: 0;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1;
+  transform: scale(1.05);
+  border: 2px solid #667eea;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: #667eea;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info Section */
+.infoSection {
+  display: flex;
+  align-items: center;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.category {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  align-self: flex-start;
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Quick Tech Stack */
+.techSection h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #e2e8f0;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.moreTech {
+  background: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+/* Quick Actions */
+.quickActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.viewDetailsButton {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  flex: 1;
+  position: relative;
+  z-index: 101;
+}
+
+.viewDetailsButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.liveDemoButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  flex: 1;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 101;
+}
+
+.liveDemoButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Not Found */
+.notFound {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.notFound h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+/* Enhanced Responsive Design with Better Navbar Handling */
+@media (max-width: 968px) {
+  .mainContent {
+    gap: 2rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quickView {
+    padding: 1rem;
+    padding-top: calc(1rem + 80px); /* Adjust for mobile */
+  }
+
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .image {
+    height: 300px;
+  }
+
+  .projectInfo {
+    gap: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .quickActions {
+    flex-direction: column;
+  }
+
+  .viewDetailsButton,
+  .liveDemoButton {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .quickView {
+    padding: 0.75rem;
+    padding-top: calc(0.75rem + 80px); /* Adjust for small mobile */
+  }
+
+  .image {
+    height: 250px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .techTags {
+    gap: 0.4rem;
+  }
+
+  .techTag,
+  .moreTech {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  /* Extra padding for very small devices */
+  .header {
+    margin-top: 0.25rem;
+  }
+}
+
+/* Additional Safety for Different Navbar Heights */
+@media (min-width: 769px) {
+  .quickView {
+    padding-top: calc(1.5rem + 80px); /* Default for desktop */
+  }
+}
+
+/* If your navbar is taller, adjust these values */
+@media (min-width: 769px) and (max-height: 800px) {
+  .quickView {
+    padding-top: calc(1.5rem + 70px);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .backButton:hover,
+  .githubLink:hover,
+  .liveLink:hover,
+  .viewDetailsButton:hover,
+  .liveDemoButton:hover {
+    transform: none;
+  }
+
+  .backButton:active,
+  .githubLink:active,
+  .liveLink:active,
+  .viewDetailsButton:active,
+  .liveDemoButton:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Ensure content is properly spaced from top */
+.quickView::before {
+  content: '';
+  display: block;
+  height: 0;
+  width: 100%;
+}
+
+/* If you need to adjust based on exact navbar height, use this */
+/* Replace 80px with your actual navbar height */
+.navbarSpacer {
+  height: 80px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+
+
+/* src/pages/QuickView.module.css */
+
+/* Add these new styles to your existing CSS */
+
+/* Image Title Overlay */
+.imageTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 1rem 1rem 0.8rem;
+  font-size: 0.8rem;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  font-weight: 500;
+}
+
+/* Project Stats */
+.projectStats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.statItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+.statIcon {
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+/* Features Preview */
+.featuresPreview {
+  margin-top: 0.5rem;
+}
+
+.featuresPreview h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #e2e8f0;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featuresList li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.featuresList li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.featuresList li:last-child {
+  border-bottom: none;
+}
+
+.moreFeatures {
+  font-size: 0.8rem;
+  color: #667eea;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+/* GitHub Button */
+.githubButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  flex: 1;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 101;
+}
+
+.githubButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Tech Tags with Hover */
+.techTag {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.techTag:hover {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Enhanced Main Image */
+.mainImage {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.mainImage:hover {
+  box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+}
+
+/* Enhanced Category Badge */
+.category {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  align-self: flex-start;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Enhanced Title Gradient */
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  position: relative;
+}
+
+/* Loading State for Images */
+.image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+}
+
+.image:not([src]),
+.image[src=""] {
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive Design for New Elements */
+@media (max-width: 768px) {
+  .projectStats {
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  
+  .statItem {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  
+  .featuresList li {
+    font-size: 0.85rem;
+    padding-left: 1rem;
+  }
+  
+  .featuresPreview h3 {
+    font-size: 1rem;
+  }
+  
+  .imageTitle {
+    font-size: 0.75rem;
+    padding: 0.8rem 0.8rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectStats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statItem {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .featuresList li {
+    font-size: 0.8rem;
+  }
+  
+  .moreFeatures {
+    font-size: 0.75rem;
+  }
+}
+
+/* Animation for New Elements */
+.projectStats,
+.featuresPreview,
+.imageTitle {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Focus States for Accessibility */
+.backButton:focus,
+.githubLink:focus,
+.liveLink:focus,
+.viewDetailsButton:focus,
+.liveDemoButton:focus,
+.githubButton:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .quickView {
+    background: white;
+    color: black;
+    padding: 1rem;
+  }
+  
+  .backButton,
+  .projectLinks {
+    display: none;
+  }
+  
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .techTag {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #333;
+  }
+}
+
+
+
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .techTag {
+    border: 2px solid #667eea;
+  }
+  
+  .statItem {
+    border: 2px solid #667eea;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .backButton,
+  .githubLink,
+  .liveLink,
+  .viewDetailsButton,
+  .liveDemoButton,
+  .githubButton,
+  .techTag,
+  .category,
+  .navButton,
+  .thumbnail {
+    transition: none;
+  }
+  
+  .projectStats,
+  .featuresPreview,
+  .imageTitle {
+    animation: none;
+  }
+}

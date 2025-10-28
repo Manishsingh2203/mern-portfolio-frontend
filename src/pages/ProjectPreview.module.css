@@ -1,0 +1,925 @@
+
+
+.previewContainer {
+  min-height: 100vh;
+ /* background: #0a0a0a;*/
+  padding: 2rem;
+  color: white;
+  position: relative;
+}
+
+/* Header - Fixed positioning to avoid navbar overlap */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 100;
+  padding-top: 1rem;
+}
+
+/* Add top padding to account for fixed navbar */
+.previewContainer::before {
+  content: '';
+  display: block;
+  height: 80px; /* Adjust based on your navbar height */
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
+  z-index: 101;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.projectLinks {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 101;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 101;
+}
+
+.githubLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.heroSection {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.titleContainer {
+  display: inline-block;
+  position: relative;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.underline {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  background: white;
+  transform-origin: left;
+}
+
+.description {
+  font-size: 1.4rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Gallery Section */
+.gallerySection {
+  margin-bottom: 4rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 90;
+}
+
+.imageGallery {
+  position: relative;
+}
+
+.mainImage {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
+  background: #1a1a1a;
+}
+
+.image {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+  display: block;
+  background: #0a0a0a;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  z-index: 95;
+}
+
+.navButton:hover {
+  background: rgba(102, 126, 234, 0.9);
+  border-color: rgba(102, 126, 234, 0.8);
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+.imageCounter {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  z-index: 95;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 90;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 70px;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  background: #1a1a1a;
+  padding: 0;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1;
+  transform: scale(1.08);
+  border: 2px solid #667eea;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: #667eea;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details Grid */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 90;
+}
+
+.detailCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.detailCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.detailCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Tech List */
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.techTag {
+  background: rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  color: #667eea;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.techTag:hover {
+  background: rgba(102, 126, 234, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Lists */
+.featureList,
+.challengeList,
+.learningList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureList li,
+.challengeList li,
+.learningList li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 1.8rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.featureList li:before {
+  content: '✅';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+.challengeList li:before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+.learningList li:before {
+  content: '🎯';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+.featureList li:last-child,
+.challengeList li:last-child,
+.learningList li:last-child {
+  border-bottom: none;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 90;
+}
+
+.ctaContent h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.ctaContent p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.ctaButtonSecondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ctaButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Not Found */
+.notFound {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #94a3b8;
+  position: relative;
+  z-index: 90;
+}
+
+.notFound h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+/* Responsive Design with better navbar handling */
+@media (max-width: 768px) {
+  .previewContainer {
+    padding: 1rem;
+    padding-top: 5rem; /* Extra padding for mobile navbar */
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .image {
+    height: 400px;
+  }
+
+  .navButton {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .detailCard {
+    padding: 2rem;
+  }
+
+  .detailCard h3 {
+    font-size: 1.3rem;
+  }
+
+  .thumbnails {
+    gap: 0.5rem;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 60px;
+  }
+
+  .ctaSection {
+    padding: 2rem;
+  }
+
+  .ctaContent h3 {
+    font-size: 1.5rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .previewContainer {
+    padding-top: 6rem; /* Even more padding for smaller screens */
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .image {
+    height: 300px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .detailCard {
+    padding: 1.5rem;
+  }
+
+  .techTag {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .ctaSection {
+    padding: 1.5rem;
+  }
+
+  .header {
+    margin-top: 1rem;
+  }
+}
+
+/* If you have a fixed navbar, add this */
+@media (min-width: 769px) {
+  .previewContainer {
+    padding-top: 6rem; /* Adjust based on your navbar height */
+  }
+}
+
+/* Animation for list items */
+.featureList li,
+.challengeList li,
+.learningList li {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading state for images */
+.image {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Scrollbar styling */
+.previewContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.previewContainer::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.previewContainer::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+.previewContainer::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+
+
+/* src/pages/ProjectPreview.module.css */
+
+/* Add these new styles to your existing file */
+
+/* Project Stats */
+.projectStats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.statItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.statIcon {
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.complexityBadge,
+.statusBadge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Image Title Overlay */
+.imageTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 1.5rem 1rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+/* Highlights Section */
+.highlightsSection {
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 90;
+}
+
+.highlightsSection h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.highlightCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 120px;
+  justify-content: center;
+}
+
+.highlightCard:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.highlightIcon {
+  color: #ffd700;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.highlightCard span {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+/* Achievement List */
+.achievementList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievementList li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 2rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.achievementList li:before {
+  content: '🏆';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+.achievementList li:last-child {
+  border-bottom: none;
+}
+
+/* Enhanced Hero Section for better spacing */
+.heroSection {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Better responsive design for new sections */
+@media (max-width: 768px) {
+  .projectStats {
+    gap: 1rem;
+  }
+  
+  .statItem {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .highlightCard {
+    padding: 1.2rem;
+    min-height: 100px;
+  }
+  
+  .highlightCard span {
+    font-size: 0.9rem;
+  }
+  
+  .highlightsSection h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .imageTitle {
+    font-size: 0.8rem;
+    padding: 1rem 0.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectStats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statItem {
+    width: 200px;
+    justify-content: center;
+  }
+  
+  .highlightsSection h3 {
+    font-size: 1.3rem;
+  }
+  
+  .highlightCard {
+    min-height: 90px;
+    padding: 1rem;
+  }
+  
+  .highlightIcon {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation for new elements */
+.projectStats,
+.highlightsSection,
+.achievementList li {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced gradient effects */
+.highlightCard:nth-child(odd):hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.highlightCard:nth-child(even):hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+}
+
+/* Improved badge styles */
+.complexityBadge,
+.statusBadge {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.complexityBadge:hover,
+.statusBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading state improvements */
+.image {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.image:not([src]),
+.image[src=""] {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* Better focus states for accessibility */
+.backButton:focus,
+.githubLink:focus,
+.navButton:focus,
+.thumbnail:focus,
+.ctaButton:focus,
+.ctaButtonSecondary:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .previewContainer {
+    background: white;
+    color: black;
+  }
+  
+  .backButton,
+  .projectLinks,
+  .ctaSection {
+    display: none;
+  }
+  
+  .detailCard {
+    background: white;
+    border: 1px solid #ddd;
+  }
+}

@@ -1,0 +1,115 @@
+/* src/components/AnimatedBackground/AnimatedBackground.module.css */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: #000000;
+}
+
+.canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Enhanced crisp rendering with modern properties */
+.canvas {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: Add subtle vignette effect for depth */
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Optional: Add very subtle gradient overlay for modern look */
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 20, 0.1) 0%,
+    rgba(5, 5, 15, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Performance optimization for mobile */
+.background {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .background::after {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+  
+  /* Reduce rendering intensity on mobile for better performance */
+  .canvas {
+    image-rendering: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .canvas {
+    filter: contrast(1.2);
+  }
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .background {
+    animation: none;
+  }
+}
+
+/* Dark mode enhancements (if needed) */
+@media (prefers-color-scheme: dark) {
+  .background {
+    background: #000000;
+  }
+}
+
+/* Print styles - hide background when printing */
+@media print {
+  .background {
+    display: none;
+  }
+}

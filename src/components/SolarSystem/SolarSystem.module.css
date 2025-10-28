@@ -1,0 +1,586 @@
+/* Solar System - Optimized for Smooth Scrolling */
+.solarSystem {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Header Section - Optimized */
+.headerSection {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  z-index: 20;
+  background: transparent;
+  margin: 0 auto;
+  flex-shrink: 0;
+  /* Prevent repaints */
+  contain: layout style paint;
+}
+
+.headerTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  /* GPU acceleration */
+  transform: translateZ(0);
+}
+
+.whiteText {
+  color: #ffffff;
+  /* Simplified shadow for performance */
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Remove heavy shadow */
+  text-shadow: none;
+}
+
+.headerDescription {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  transform: translateZ(0);
+}
+
+/* Solar System Container - Optimized */
+.solarSystemContainer {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 200px);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* GPU layer */
+  transform: translateZ(0);
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Stars Container - Performance Optimized */
+.starsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  /* Contain heavy animations */
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+/* Base Star Styles - Simplified */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  contain: layout style;
+}
+
+/* Simplified star types with minimal effects */
+.star.blue {
+  background: #4fc3f7;
+  box-shadow: 0 0 6px #4fc3f7;
+  animation: optimizedTwinkle 8s ease-in-out infinite;
+}
+
+.star.white {
+  background: #ffffff;
+  box-shadow: 0 0 5px #ffffff;
+  animation: optimizedTwinkle 6s ease-in-out infinite;
+}
+
+.star.yellow {
+  background: #ffeb3b;
+  box-shadow: 0 0 7px #ffeb3b;
+  animation: optimizedTwinkle 7s ease-in-out infinite;
+}
+
+.star.orange {
+  background: #ff9800;
+  box-shadow: 0 0 5px #ff9800;
+  animation: optimizedTwinkle 9s ease-in-out infinite;
+}
+
+.star.purple {
+  background: #ba68c8;
+  box-shadow: 0 0 6px #ba68c8;
+  animation: optimizedTwinkle 10s ease-in-out infinite;
+}
+
+.star.red {
+  background: #f44336;
+  box-shadow: 0 0 5px #f44336;
+  animation: optimizedTwinkle 11s ease-in-out infinite;
+}
+
+/* Optimized Twinkling Animation - Minimal transforms */
+@keyframes optimizedTwinkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1) translateZ(0);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: scale(1.1) translateZ(0);
+  }
+}
+
+/* Special stars with simplified effects */
+.star.bright {
+  animation-duration: 4s;
+  opacity: 0.8;
+}
+
+/* Remove supernova and complex meteor animations for performance */
+.meteorite {
+  display: none;
+}
+
+/* Optimized Sun */
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ffd700 30%, #ff8c00 70%);
+  border-radius: 50%;
+  /* Simplified shadow - single layer */
+  box-shadow: 0 0 30px #ff4500;
+  animation: optimizedSunGlow 6s ease-in-out infinite;
+  z-index: 3;
+  /* GPU acceleration */
+  will-change: transform, box-shadow;
+  contain: layout style;
+}
+
+@keyframes optimizedSunGlow {
+  0%, 100% { 
+    box-shadow: 0 0 30px #ff4500;
+  }
+  50% { 
+    box-shadow: 0 0 50px #ff4500;
+  }
+}
+
+/* Optimized Orbit Containers */
+[class*="orbit"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  z-index: 2;
+  /* GPU acceleration */
+  will-change: transform;
+  contain: layout style;
+}
+
+/* Optimized Planets */
+[class*="planet"] {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateZ(0);
+  z-index: 3;
+  /* GPU acceleration */
+  will-change: transform;
+  contain: layout style;
+  /* Remove gradients for solid colors */
+  box-shadow: none;
+}
+
+/* Planet Sizes and Solid Colors */
+.planetMercury {
+  width: 8px;
+  height: 8px;
+  background: #8c7853;
+}
+
+.planetVenus {
+  width: 14px;
+  height: 14px;
+  background: #ffc649;
+}
+
+.planetEarth {
+  width: 16px;
+  height: 16px;
+  background: #6b93d6;
+}
+
+.planetMars {
+  width: 12px;
+  height: 12px;
+  background: #cd5c5c;
+}
+
+.planetJupiter {
+  width: 28px;
+  height: 28px;
+  background: #d8ca9d;
+}
+
+.planetSaturn {
+  width: 24px;
+  height: 24px;
+  background: #fad5a5;
+}
+
+.planetUranus {
+  width: 18px;
+  height: 18px;
+  background: #4fd0e7;
+}
+
+.planetNeptune {
+  width: 17px;
+  height: 17px;
+  background: #4b70dd;
+}
+
+/* Moon System */
+.moonOrbit {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  animation: orbit 2s linear infinite;
+  z-index: 4;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.moon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: #d3d3d3;
+  border-radius: 50%;
+  transform: translateZ(0);
+}
+
+/* Saturn's Ring - Simplified */
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(75deg) translateZ(0);
+  width: 40px;
+  height: 8px;
+  background: rgba(210, 180, 140, 0.7);
+  border-radius: 50%;
+  z-index: 2;
+  contain: layout style;
+}
+
+/* Orbit Animations - Optimized */
+.orbitMercury {
+  width: 140px;
+  height: 140px;
+  animation: optimizedOrbit 5s linear infinite;
+}
+
+.orbitVenus {
+  width: 190px;
+  height: 190px;
+  animation: optimizedOrbit 8s linear infinite;
+}
+
+.orbitEarth {
+  width: 240px;
+  height: 240px;
+  animation: optimizedOrbit 12s linear infinite;
+}
+
+.orbitMars {
+  width: 290px;
+  height: 290px;
+  animation: optimizedOrbit 20s linear infinite;
+}
+
+.orbitJupiter {
+  width: 360px;
+  height: 360px;
+  animation: optimizedOrbit 30s linear infinite;
+}
+
+.orbitSaturn {
+  width: 430px;
+  height: 430px;
+  animation: optimizedOrbit 40s linear infinite;
+}
+
+.orbitUranus {
+  width: 500px;
+  height: 500px;
+  animation: optimizedOrbit 60s linear infinite;
+}
+
+.orbitNeptune {
+  width: 570px;
+  height: 570px;
+  animation: optimizedOrbit 80s linear infinite;
+}
+
+/* Optimized Orbit Animation */
+@keyframes optimizedOrbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateZ(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateZ(0);
+  }
+}
+
+/* Scroll Performance Optimization Classes */
+.scrollOptimized .star {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  opacity: 0.5;
+}
+
+.scrollOptimized [class*="orbit"] {
+  animation-play-state: paused;
+}
+
+.scrollOptimized .sun {
+  animation-play-state: paused;
+}
+
+.scrollOptimized .moonOrbit {
+  animation-play-state: paused;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .headerSection {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+  
+  .solarSystemContainer {
+    height: calc(100vh - 180px);
+  }
+  
+  /* Smaller sun */
+  .sun {
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 20px #ff4500;
+  }
+  
+  /* Smaller orbits */
+  .orbitMercury { width: 100px; height: 100px; }
+  .orbitVenus { width: 140px; height: 140px; }
+  .orbitEarth { width: 180px; height: 180px; }
+  .orbitMars { width: 220px; height: 220px; }
+  .orbitJupiter { width: 270px; height: 270px; }
+  .orbitSaturn { width: 320px; height: 320px; }
+  .orbitUranus { width: 370px; height: 370px; }
+  .orbitNeptune { width: 420px; height: 420px; }
+  
+  /* Smaller planets */
+  .planetMercury { width: 6px; height: 6px; }
+  .planetVenus { width: 10px; height: 10px; }
+  .planetEarth { width: 12px; height: 12px; }
+  .planetMars { width: 9px; height: 9px; }
+  .planetJupiter { width: 20px; height: 20px; }
+  .planetSaturn { width: 18px; height: 18px; }
+  .planetUranus { width: 14px; height: 14px; }
+  .planetNeptune { width: 13px; height: 13px; }
+  
+  .ring {
+    width: 30px;
+    height: 6px;
+  }
+  
+  .moonOrbit {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .moon {
+    width: 3px;
+    height: 3px;
+  }
+  
+  /* Further reduce animations on mobile */
+  .star {
+    animation-duration: 12s !important;
+  }
+  
+  [class*="orbit"] {
+    animation-duration: calc(var(--base-duration, 1s) * 1.5) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerSection {
+    padding: 1rem 0.5rem 0.5rem;
+  }
+  
+  .solarSystemContainer {
+    height: calc(100vh - 150px);
+  }
+  
+  .sun {
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 15px #ff4500;
+  }
+  
+  /* Even smaller orbits for mobile */
+  .orbitMercury { width: 80px; height: 80px; }
+  .orbitVenus { width: 110px; height: 110px; }
+  .orbitEarth { width: 140px; height: 140px; }
+  .orbitMars { width: 170px; height: 170px; }
+  .orbitJupiter { width: 210px; height: 210px; }
+  .orbitSaturn { width: 250px; height: 250px; }
+  .orbitUranus { width: 290px; height: 290px; }
+  .orbitNeptune { width: 330px; height: 330px; }
+  
+  /* Even smaller planets */
+  .planetMercury { width: 4px; height: 4px; }
+  .planetVenus { width: 7px; height: 7px; }
+  .planetEarth { width: 8px; height: 8px; }
+  .planetMars { width: 6px; height: 6px; }
+  .planetJupiter { width: 14px; height: 14px; }
+  .planetSaturn { width: 12px; height: 12px; }
+  .planetUranus { width: 9px; height: 9px; }
+  .planetNeptune { width: 8px; height: 8px; }
+  
+  .ring {
+    width: 20px;
+    height: 4px;
+  }
+  
+  .moonOrbit {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .moon {
+    width: 2px;
+    height: 2px;
+  }
+  
+  /* Minimal animations on very small screens */
+  .star {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .solarSystemContainer {
+    height: calc(100vh - 180px);
+  }
+  
+  .orbitMercury { width: 120px; height: 120px; }
+  .orbitVenus { width: 165px; height: 165px; }
+  .orbitEarth { width: 210px; height: 210px; }
+  .orbitMars { width: 255px; height: 255px; }
+  .orbitJupiter { width: 315px; height: 315px; }
+  .orbitSaturn { width: 375px; height: 375px; }
+  .orbitUranus { width: 435px; height: 435px; }
+  .orbitNeptune { width: 495px; height: 495px; }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  [class*="orbit"],
+  .sun,
+  .moonOrbit {
+    animation: none !important;
+  }
+  
+  .star {
+    opacity: 0.7;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .star {
+    box-shadow: 0 0 8px currentColor;
+  }
+  
+  [class*="orbit"] {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Orientation-specific optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .solarSystemContainer {
+    height: calc(100vh - 120px);
+  }
+  
+  .headerSection {
+    padding: 1rem 1rem 0.5rem;
+  }
+  
+  .headerTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Safe area support for notched devices */
+@supports (padding: max(0px)) {
+  .solarSystem {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* Performance monitoring classes */
+.performance-low .star {
+  animation: none;
+  opacity: 0.5;
+}
+
+.performance-low [class*="orbit"] {
+  animation-duration: 999999s; /* Essentially paused */
+}
+
+/* JavaScript hook for manual performance control */
+.manual-pause * {
+  animation-play-state: paused !important;
+}

@@ -1,0 +1,447 @@
+/* Privacy.module.css */
+.privacy {
+  min-height: 100vh;
+  position: relative;
+
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.floatingOrbs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.1;
+}
+
+.orb1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #ff6b6b, #ffa500);
+  top: 10%;
+  left: 10%;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  top: 60%;
+  right: 10%;
+}
+
+.orb3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(45deg, #ffd93d, #ff9a3d);
+  bottom: 10%;
+  left: 20%;
+}
+
+.gridPattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.gradientOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(12, 12, 12, 0.8) 70%);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  padding: 4rem 0 2rem;
+}
+
+.backButtonContainer {
+  display: inline-flex;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.titleSection {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #a8a8a8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleUnderline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #a8a8a8;
+  margin: 0;
+}
+
+/* Content Styles */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sectionNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+/* Data Grid */
+.dataGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.dataCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.dataCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dataIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.dataCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.dataList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.dataList li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.dataList li:last-child {
+  border-bottom: none;
+}
+
+.dataDescription {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Usage Grid */
+.usageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.usageCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.usageCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.usageIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.usageCard h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.usageCard p {
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+/* Security Content */
+.securityContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.securityIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+/* Rights Grid */
+.rightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.rightItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.rightNumber {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #4ecdc4;
+  background: rgba(78, 205, 196, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
+
+.rightItem h4 {
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.rightItem p {
+  margin: 0;
+  color: #e0e0e0;
+}
+
+/* Contact Info */
+.contactInfo {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.contactItem:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactIcon {
+  font-size: 1.5rem;
+}
+
+.contactItem strong {
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.contactItem p {
+  margin: 0;
+  color: #e0e0e0;
+}
+
+/* Footer */
+.pageFooter {
+  text-align: center;
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+.footerContent {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.footerContent p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.footerNote {
+  color: #a8a8a8;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .securityContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .dataGrid,
+  .usageGrid,
+  .rightsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 2rem 0 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 1rem;
+  }
+  
+  .usageCard,
+  .dataCard {
+    padding: 1.5rem;
+  }
+}

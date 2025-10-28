@@ -1,0 +1,88 @@
+.confettiContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  /* Enhanced performance optimizations */
+  isolation: isolate;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.confettiPiece {
+  position: absolute;
+  top: -60px;
+  /* Maximum hardware acceleration */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* Critical performance optimizations */
+  contain: layout style paint;
+  /* Force GPU layer */
+  animation: none !important; /* Prevent conflicting animations */
+}
+
+/* Remove hover effects for performance - they interfere with instant cleanup */
+/* .confettiPiece:hover {
+  filter: brightness(1.3) !important;
+} */
+
+/* Mobile optimization - faster cleanup */
+@media (max-width: 768px) {
+  .confettiContainer {
+    transform: scale(0.9);
+    /* Faster cleanup on mobile */
+    transition: opacity 0.1s ease-out;
+  }
+  
+  .confettiPiece {
+    filter: brightness(1.15) saturate(1.3);
+    /* Smaller animation footprint */
+    transform: translateZ(0) scale(0.8);
+  }
+}
+
+/* High-density optimization - faster rendering */
+@media (min-width: 1200px) {
+  .confettiContainer {
+    transform: scale(1.1);
+  }
+}
+
+/* Enhanced reduced motion for accessibility and instant cleanup */
+@media (prefers-reduced-motion: reduce) {
+  .confettiContainer {
+    display: none !important; /* Instant cleanup for accessibility */
+  }
+}
+
+/* Instant cleanup state */
+.confettiContainer.cleanup {
+  opacity: 0;
+  transition: opacity 0.05s ease-out;
+  pointer-events: none;
+}
+
+.confettiPiece.cleanup {
+  opacity: 0 !important;
+  transform: translateZ(0) scale(0) !important;
+  transition: all 0.05s ease-out !important;
+}
+
+/* Performance optimizations for many elements */
+.confettiContainer {
+  /* Create a new stacking context */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.confettiPiece {
+  /* Optimize compositing */
+  mix-blend-mode: normal;
+  /* Prevent layout thrashing */
+  position: fixed;
+}

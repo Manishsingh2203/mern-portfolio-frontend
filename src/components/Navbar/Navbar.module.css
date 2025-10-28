@@ -1,0 +1,496 @@
+/* Navbar.module.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.8); /* Dark background by default */
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .navBackground {
+  background: rgba(10, 10, 10, 0.95); /* Keep dark when scrolled */
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Time Display */
+/* Add these styles to your existing Navbar.module.css */
+
+/* Time Display */
+.timeDisplay {
+  cursor: pointer;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.timeContainer {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+ 
+  gap: 0.3rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeDisplay:hover .timeContainer {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.timePrefix {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.timeText {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.navbar.scrolled .timePrefix,
+.navbar.scrolled .timeText {
+  color: #ffffff;
+}
+
+.timeGlow {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #333, transparent);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .timeGlow {
+  background: linear-gradient(90deg, transparent, #000, transparent);
+}
+
+/* Mobile Time Display in Menu */
+.mobileNavHeader {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileTimeDisplay {
+  cursor: pointer;
+  text-align: center;
+}
+
+.mobileTimeContainer {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.mobileTimeDisplay:hover .mobileTimeContainer {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.mobileTimePrefix {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.mobileTimeText {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+  .timeContainer {
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .timePrefix {
+    font-size: 0.7rem;
+  }
+  
+  .timeText {
+    font-size: 0.75rem;
+  }
+  
+  .mobileTimeContainer {
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .mobileTimePrefix {
+    font-size: 0.75rem;
+  }
+  
+  .mobileTimeText {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeContainer {
+    padding: 0.35rem 0.5rem;
+  }
+  
+  .timePrefix {
+    font-size: 0.65rem;
+  }
+  
+  .timeText {
+    font-size: 0.7rem;
+  }
+  
+  .mobileNavHeader {
+    padding: 1.25rem 1rem 1rem;
+  }
+  
+  .mobileTimeContainer {
+    padding: 0.4rem 0.7rem;
+  }
+  
+  .mobileTimePrefix {
+    font-size: 0.7rem;
+  }
+  
+  .mobileTimeText {
+    font-size: 0.75rem;
+  }
+}
+
+/* Animation for navbar height adjustment */
+.navbar:not(.scrolled) .timePrefix,
+.navbar:not(.scrolled) .timeText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar:not(.scrolled) .timeGlow {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+}
+
+/* Desktop Navigation */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLinkWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #ffffff; /* White text */
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: #60a5fa; /* Light blue for hover */
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.navLinkWrapper.active .navLink {
+  color: #60a5fa; /* Light blue for active state */
+  font-weight: 600;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #60a5fa;
+  border-radius: 2px;
+}
+
+/* Philosophy Button - Always Visible */
+.philosophyButton .navLink {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.philosophyButton .navLink:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  z-index: 1002;
+}
+
+.menuButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menuButton span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #ffffff; /* White hamburger icon */
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.menuButtonOpen span {
+  background: #333; /* Dark when menu is open */
+}
+
+/* Mobile Navigation */
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay */
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  background: rgba(10, 10, 10, 0.95); /* Dark mobile menu */
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1001;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileNavContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.mobileNavItem {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mobileNavLinkWrapper {
+  position: relative;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: #ffffff; /* White text in mobile menu */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.mobileNavLink:hover {
+  background: rgba(96, 165, 250, 0.1);
+  color: #60a5fa;
+}
+
+.mobileActive .mobileNavLink {
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.mobileActiveIndicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #60a5fa;
+  border-radius: 0 2px 2px 0;
+}
+
+.mobileNavText {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Philosophy Button - Same style as desktop */
+.mobilePhilosophyButton .mobileNavLink {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.mobilePhilosophyButton .mobileNavLink:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.mobileNavFooter {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Light border for dark theme */
+}
+
+.mobileNavCaption {
+  font-size: 0.9rem;
+  color: #9ca3af; /* Lighter gray for caption */
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 1rem;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .timeText {
+    font-size: 0.8rem;
+  }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .mobileNav {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navContainer {
+    padding: 0 0.75rem;
+  }
+
+  .timeText {
+    font-size: 0.75rem;
+  }
+
+  .mobileNav {
+    padding: 1.5rem 1rem;
+  }
+
+  .mobileNavLink {
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* Remove conflicting transparent styles - this was causing the white background issue */
+.navbar:not(.scrolled) {
+  background: transparent;
+}
+
+.navbar:not(.scrolled) .navBackground {
+  background: rgba(10, 10, 10, 0.8); /* Consistent dark background */
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure all text remains visible in non-scrolled state */
+.navbar:not(.scrolled) .navLink {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar:not(.scrolled) .timeText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar:not(.scrolled) .menuButton span {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.navbar:not(.scrolled) .timeGlow {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+}

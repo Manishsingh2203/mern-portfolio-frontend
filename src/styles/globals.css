@@ -1,0 +1,81 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-blue: #2563eb;
+  --primary-purple: #7c3aed;
+  --accent-gold: #f59e0b;
+  --dark-bg: #0f172a;
+  --darker-bg: #020617;
+  --light-text: #f8fafc;
+  --gray-text: #94a3b8;
+  --neon-glow: 0 0 10px rgba(37, 99, 235, 0.5),
+               0 0 20px rgba(124, 58, 237, 0.3),
+               0 0 30px rgba(245, 158, 11, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+ /* background: var(--darker-bg);*/
+  color: var(--light-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Custom Cursor */
+.cursor-follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, 
+    rgba(37, 99, 235, 0.3) 0%,
+    rgba(124, 58, 237, 0.2) 30%,
+    transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transition: transform 0.1s ease;
+}
+
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000; /* solid black track */
+ 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444; /* gray thumb */
+  border-radius: 4px;
+ 
+  border: 2px solid #000; /* match track color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #000; /* thumb + track colors */
+}
