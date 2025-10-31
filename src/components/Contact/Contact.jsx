@@ -121,28 +121,28 @@ const Contact = () => {
     {
       name: 'GitHub',
       icon: SocialIcons.GitHub,
-      url: 'https://github.com/manish-singh',
+      url: 'https://github.com/Manishsingh2203',
       color: '#333',
       username: '@manish-singh'
     },
     {
       name: 'LinkedIn',
       icon: SocialIcons.LinkedIn,
-      url: 'https://linkedin.com/in/manish-singh',
+      url: 'https://www.linkedin.com/in/manish-singh-967o4o42',
       color: '#0077b5',
       username: 'manish-singh'
     },
     {
       name: 'Twitter',
       icon: SocialIcons.Twitter,
-      url: 'https://twitter.com/manish_singh',
+      url: 'https://x.com/_ManishSingh01',
       color: '#1da1f2',
       username: '@manish_singh'
     },
     {
       name: 'Instagram',
       icon: SocialIcons.Instagram,
-      url: 'https://instagram.com/manish.singh',
+      url: 'https://www.instagram.com/_manishsinghh',
       color: '#e4405f',
       username: '@manish.singh'
     }
@@ -152,19 +152,19 @@ const Contact = () => {
     {
       icon: '📧',
       title: 'Email',
-      value: 'manish.singh@example.com',
-      link: 'mailto:manish.singh@example.com'
+      value: 'manishsinghbst0322@gmail.com',
+      link: 'mailto:manishsinghbst0322@gmail.com'
     },
     {
       icon: '📞',
       title: 'Phone',
-      value: '+91 98765 43210',
-      link: 'tel:+919876543210'
+      value: '+91 7317084444',
+      link: 'tel:+917317084444'
     },
     {
       icon: '📍',
       title: 'Location',
-      value: 'New Delhi, India',
+      value: 'Noida, India',
       link: 'https://maps.google.com/?q=New+Delhi,India'
     },
     {

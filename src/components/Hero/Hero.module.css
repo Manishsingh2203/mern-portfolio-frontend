@@ -1,5 +1,6 @@
+/* Hero.module.css - Optimized for Any Theme Mode */
 
-/* Hero.module.css */
+/* Base Mobile Styles (320px+) */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -7,9 +8,8 @@
   position: relative;
   overflow: hidden;
   padding: 1rem 0;
-  padding-top: 80px; /* Increased for better navbar clearance */
+  padding-top: 100px; /* Increased for mobile navbar clearance */
 }
-
 
 .backgroundElements {
   position: absolute;
@@ -20,8 +20,6 @@
   pointer-events: none;
   z-index: 1;
 }
-
-
 
 /* Animated Grid Background */
 .animatedGrid {
@@ -39,6 +37,7 @@
 }
 
 .gridCell {
+   
   background: linear-gradient(135deg, #667eea, #764ba2);
   border-radius: 2px;
 }
@@ -62,6 +61,27 @@
   order: 2;
 }
 
+/* Enhanced Greeting for Mobile */
+.greetingContainer {
+  margin-bottom: 1rem;
+}
+
+.greeting {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background-color: rgba(102, 126, 234, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
 /* Enhanced Title Container */
 .heroTitleContainer {
   position: relative;
@@ -73,8 +93,8 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 0.75rem;
-  color: #f8fafc;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .gradientText {
@@ -93,7 +113,6 @@
   display: inline-block;
 }
 
-/* Name text styling for individual letter animations */
 .nameText {
   display: inline-block;
 }
@@ -101,7 +120,8 @@
 .heroSubtitle {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #cbd5e1;
+  color: #e2e8f0;
+
   margin-bottom: 0.75rem;
   min-height: 1.5rem;
 }
@@ -123,20 +143,23 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: #94a3b8;
+  color: #BFBFBF;
+
+
   margin-bottom: 1.25rem;
   font-size: 0.9rem;
 }
 
 .locationIcon {
-  color: #6366f1;
+  color: #FFA726;
+  
   font-size: 0.9rem;
 }
 
 .heroDescription {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: #cbd5e1;
+  color: #CCCCCC; /* Adaptive color */
   margin-bottom: 1.5rem;
   padding: 0;
 }
@@ -181,7 +204,7 @@
 
 .secondaryButton {
   background: rgba(16, 185, 129, 0.12);
-  color: #f8fafc;
+  color:#BFBFBF; /* Adaptive color */
   border: 1.5px solid rgba(16, 185, 129, 0.3);
   backdrop-filter: blur(10px);
 }
@@ -198,12 +221,12 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--social-bg, rgba(255, 255, 255, 0.08)); /* Adaptive background */
+  border: 1px solid var(--social-border, rgba(255, 255, 255, 0.15)); /* Adaptive border */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #cbd5e1;
+  color: var(--text-secondary, #64748b); /* Adaptive color */
   text-decoration: none;
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
@@ -292,105 +315,6 @@
   50% { background-position: 100% 50%; }
 }
 
-/* Enhanced Floating Icons */
-.floatingIcon1,
-.floatingIcon2,
-.floatingIcon3,
-.floatingIcon4 {
-  display: none;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #6366f1;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  position: absolute;
-  z-index: 3;
-}
-
-.reactLogo, .nodeLogo {
-  font-size: 1.4rem;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
-
-/* Enhanced Code Snippets */
-.codeElements {
-  display: none;
-  position: absolute;
-  bottom: -60px;
-  gap: 1rem;
-  width: 100%;
-  justify-content: center;
-}
-
-.codeSnippet {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  backdrop-filter: blur(12px);
-  box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  max-width: 200px;
-  position: relative;
-  overflow: hidden;
-}
-
-.codeSnippet::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-}
-
-.codeHeader {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.codeDots {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.codeDots span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.codeDots span:nth-child(1) { 
-  background: linear-gradient(135deg, #ef4444, #dc2626); 
-}
-.codeDots span:nth-child(2) { 
-  background: linear-gradient(135deg, #f59e0b, #d97706); 
-}
-.codeDots span:nth-child(3) { 
-  background: linear-gradient(135deg, #10b981, #059669); 
-}
-
-.codeSnippet pre {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #e2e8f0;
-  font-family: 'Monaco', 'Consolas', 'Monaco', monospace;
-  line-height: 1.4;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
 /* Enhanced Scroll Indicator */
 .scrollIndicator {
   position: absolute;
@@ -398,7 +322,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: #94a3b8;
+  color: var(--text-muted, #64748b); /* Adaptive color */
   z-index: 2;
 }
 
@@ -415,16 +339,36 @@
   font-weight: 300;
 }
 
+/* Enhanced Floating Icons (Hidden on Mobile) */
+.floatingIcon1,
+.floatingIcon2,
+.floatingIcon3,
+.floatingIcon4 {
+  display: none;
+}
+
+/* Code Snippets (Hidden on Mobile) */
+.codeElements {
+  display: none;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
 /* Small Mobile Optimization (320px - 359px) */
 @media (max-width: 359px) {
   .hero {
-    padding-top: 60px;
+    padding-top: 90px;
     min-height: 90vh;
   }
 
   .heroContent {
     gap: 1.5rem;
     padding: 0 0.75rem;
+  }
+
+  .greeting {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .heroTitle {
@@ -521,7 +465,7 @@
 /* Tablet Styles (768px - 1023px) */
 @media (min-width: 768px) {
   .hero {
-    padding-top: 80px;
+    padding-top: 100px;
   }
 
   .heroContent {
@@ -540,6 +484,10 @@
     order: 2;
     flex: 1;
     margin-bottom: 0;
+  }
+
+  .greeting {
+    font-size: 1.3rem;
   }
 
   .heroTitle {
@@ -586,26 +534,6 @@
     height: 230px;
   }
 
-  .bgOrb1, .bgOrb2, .bgOrb3 {
-    filter: blur(50px);
-    opacity: 0.1;
-  }
-
-  .bgOrb1 {
-    width: 250px;
-    height: 250px;
-  }
-
-  .bgOrb2 {
-    width: 200px;
-    height: 200px;
-  }
-
-  .bgOrb3 {
-    width: 220px;
-    height: 220px;
-  }
-
   /* Social Links Tablet */
   .socialLinks {
     justify-content: flex-start;
@@ -616,12 +544,27 @@
     height: 45px;
   }
 
-  /* Show enhanced floating icons */
+  /* Show enhanced floating icons on tablet */
   .floatingIcon1,
   .floatingIcon2,
   .floatingIcon3,
   .floatingIcon4 {
     display: flex;
+    width: 50px;
+    height: 50px;
+    background: var(--floating-icon-bg, rgba(255, 255, 255, 0.1));
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #6366f1;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--floating-icon-border, rgba(255, 255, 255, 0.2));
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: absolute;
+    z-index: 3;
   }
 
   .floatingIcon1 { top: 20%; left: 10%; }
@@ -635,6 +578,10 @@
   .heroContent {
     gap: 4rem;
     padding: 0 2rem;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
   }
 
   .heroTitle {
@@ -685,15 +632,72 @@
   /* Show code elements on desktop */
   .codeElements {
     display: flex;
+    position: absolute;
+    bottom: -60px;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
   }
 
   .codeSnippet {
-    max-width: 220px;
-    padding: 1.25rem;
+    background: var(--code-bg, rgba(15, 23, 42, 0.8));
+    border: 1px solid var(--code-border, rgba(255, 255, 255, 0.1));
+    border-radius: 12px;
+    padding: 1rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 
+      0 12px 30px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    max-width: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .codeSnippet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--code-accent, rgba(255,255,255,0.1)), transparent);
+  }
+
+  .codeHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .codeDots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .codeDots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .codeDots span:nth-child(1) { 
+    background: linear-gradient(135deg, #ef4444, #dc2626); 
+  }
+  .codeDots span:nth-child(2) { 
+    background: linear-gradient(135deg, #f59e0b, #d97706); 
+  }
+  .codeDots span:nth-child(3) { 
+    background: linear-gradient(135deg, #10b981, #059669); 
   }
 
   .codeSnippet pre {
-    font-size: 0.85rem;
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--code-text, #e2e8f0);
+    font-family: 'Monaco', 'Consolas', 'Monaco', monospace;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
 }
 
@@ -773,6 +777,10 @@
     margin-bottom: 0;
   }
 
+  .greeting {
+    font-size: 1rem;
+  }
+
   .heroTitle {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
@@ -803,6 +811,8 @@
   }
 }
 
+/* ========== ENHANCED INTERACTIONS ========== */
+
 /* Enhanced hover effects for desktop */
 @media (hover: hover) and (min-width: 768px) {
   .ctaButton:hover {
@@ -817,8 +827,8 @@
   }
 
   .socialIcon:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--social-hover-bg, rgba(255, 255, 255, 0.15));
+    border-color: var(--social-hover-border, rgba(255, 255, 255, 0.3));
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
@@ -828,6 +838,11 @@
     box-shadow: 
       0 20px 40px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .greeting:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
   }
 }
 
@@ -845,7 +860,13 @@
     min-width: 44px;
     min-height: 44px;
   }
+
+  .greeting {
+    padding: 0.6rem 1.2rem; /* Larger touch area */
+  }
 }
+
+/* ========== ACCESSIBILITY IMPROVEMENTS ========== */
 
 /* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
@@ -871,6 +892,7 @@
   
   .typewriterCursor {
     animation: none;
+    opacity: 1; /* Keep cursor visible */
   }
   
   .animatedGrid .gridCell {
@@ -881,102 +903,61 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .bgOrb1, .bgOrb2, .bgOrb3 {
-    opacity: 0.15;
-  }
-
-  .socialIcon {
-    border-width: 2px;
-  }
-
-  .codeSnippet {
-    border-width: 2px;
-  }
-}
-
-/* Dark mode support (already dark by default) */
-@media (prefers-color-scheme: light) {
-  .hero {
-    background: #f8fafc;
-  }
-
   .heroTitle {
-    color: #1e293b;
+    color: var(--text-primary, #000);
+    text-shadow: 0 0 2px currentColor;
   }
 
   .heroSubtitle {
-    color: #475569;
+    color: var(--text-secondary, #333);
   }
 
   .heroDescription {
-    color: #64748b;
-  }
-
-  .location {
-    color: #64748b;
+    color: var(--text-secondary, #333);
   }
 
   .socialIcon {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #475569;
+    border-width: 2px;
+    background: var(--social-bg, rgba(0, 0, 0, 0.1));
   }
 
   .codeSnippet {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(0, 0, 0, 0.1);
+    border-width: 2px;
+    background: var(--code-bg, rgba(0, 0, 0, 0.9));
   }
 
-  .codeSnippet pre {
-    color: #374151;
-  }
-}
-
-
-
-
-
-/* Add to your Hero.module.css */
-
-/* Greeting Styles */
-.greetingContainer {
-  margin-bottom: 1rem;
-}
-
-.greeting {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  font-weight: 600;
-  color: #667eea;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  background-color: rgba(102, 126, 234, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  transition: all 0.3s ease;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .greeting {
-    font-size: clamp(1rem, 4vw, 1.3rem);
-    padding: 0.4rem 0.8rem;
+  .ctaButton {
+    border: 2px solid currentColor;
   }
 }
 
-
-
-/* Mobile fine-tuning */
+/* Final mobile fine-tuning */
 @media (max-width: 768px) {
   .hero {
-    padding-top: 120px; /* more space for mobile navbar */
+    padding-top: 120px; /* More space for mobile navbar */
   }
 
   .avatarContainer {
-    margin-top: 10px; /* small downward shift for balance */
+    margin-top: 10px; /* Small downward shift for visual balance */
+  }
+
+  /* Ensure mobile layout consistency */
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .location {
+    justify-content: center;
+  }
+
+  .socialLinks {
+    justify-content: center;
   }
 }
+
+/* Remove all forced dark mode styles and let AnimatedBackground.jsx handle the background */

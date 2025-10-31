@@ -17,8 +17,8 @@ const GalleryPage = () => {
   // Get unique categories safely
   const categories = ['all', ...new Set(displayedImages.map(img => img.category).filter(Boolean))];
 
-  const filteredImages = filter === 'all' 
-    ? displayedImages 
+  const filteredImages = filter === 'all'
+    ? displayedImages
     : displayedImages.filter(img => img.category === filter);
 
   // Create masonry layout columns
@@ -74,14 +74,14 @@ const GalleryPage = () => {
             <h1 className={styles.title}>
               Creative <span className={styles.titleAccent}>Gallery</span>
             </h1>
-            <motion.div 
+            <motion.div
               className={styles.titleUnderline}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             />
           </motion.div>
-          
+
           <motion.p
             className={styles.subtitle}
             initial={{ y: 30, opacity: 0 }}
@@ -92,7 +92,7 @@ const GalleryPage = () => {
           </motion.p>
 
           {/* Stats Bar */}
-          <motion.div 
+          <motion.div
             className={styles.statsBar}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -114,7 +114,7 @@ const GalleryPage = () => {
         </div>
 
         {/* Enhanced Filter Buttons */}
-        <motion.div 
+        <motion.div
           className={styles.filterContainer}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -124,15 +124,14 @@ const GalleryPage = () => {
             {categories.map(category => (
               <motion.button
                 key={category}
-                className={`${styles.filterButton} ${
-                  filter === category ? styles.activeFilter : ''
-                }`}
+                className={`${styles.filterButton} ${filter === category ? styles.activeFilter : ''
+                  }`}
                 onClick={() => setFilter(category)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ 
+                transition={{
                   type: "spring",
                   stiffness: 300,
                   damping: 20,
@@ -143,7 +142,7 @@ const GalleryPage = () => {
                   {formatCategoryName(category)}
                 </span>
                 {filter === category && (
-                  <motion.div 
+                  <motion.div
                     className={styles.activeIndicator}
                     layoutId="activeFilter"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -178,13 +177,13 @@ const GalleryPage = () => {
                     className={styles.masonryItem}
                     initial={{ scale: 0.8, opacity: 0, y: 20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.5, 
+                    transition={{
+                      duration: 0.5,
                       delay: 0.8 + (columnIndex * 0.2) + (imageIndex * 0.1),
                       type: "spring",
                       stiffness: 100
                     }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.02,
                       y: -5,
                       transition: { duration: 0.2 }
@@ -201,9 +200,9 @@ const GalleryPage = () => {
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.3 }}
                       />
-                      
+
                       {/* Enhanced Overlay */}
-                      <motion.div 
+                      <motion.div
                         className={styles.overlay}
                         initial={{ opacity: 0 }}
                         whileHover={{ opacity: 1 }}
@@ -217,9 +216,9 @@ const GalleryPage = () => {
                           >
                             <h3 className={styles.imageTitle}>{image.alt}</h3>
                           </motion.div>
-                          
+
                           {image.category && image.category !== 'uncategorized' && (
-                            <motion.span 
+                            <motion.span
                               className={styles.imageCategory}
                               initial={{ scale: 0 }}
                               whileHover={{ scale: 1 }}
@@ -228,9 +227,9 @@ const GalleryPage = () => {
                               {formatCategoryName(image.category)}
                             </motion.span>
                           )}
-                          
+
                           {image.description && (
-                            <motion.p 
+                            <motion.p
                               className={styles.imageDescription}
                               initial={{ y: 10, opacity: 0 }}
                               whileHover={{ y: 0, opacity: 1 }}
@@ -241,7 +240,7 @@ const GalleryPage = () => {
                           )}
 
                           {/* Action Buttons */}
-                          <motion.div 
+                          <motion.div
                             className={styles.actionButtons}
                             initial={{ y: 10, opacity: 0 }}
                             whileHover={{ y: 0, opacity: 1 }}
@@ -263,7 +262,7 @@ const GalleryPage = () => {
                         animate={{
                           x: hoveredImage === image.id ? '100%' : '-100%',
                         }}
-                        transition={{ 
+                        transition={{
                           duration: 0.8,
                           ease: "easeInOut"
                         }}
@@ -285,19 +284,19 @@ const GalleryPage = () => {
 
         {/* Enhanced Empty State */}
         {filteredImages.length === 0 && (
-          <motion.div 
+          <motion.div
             className={styles.emptyState}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <motion.div 
+            <motion.div
               className={styles.emptyIcon}
-              animate={{ 
+              animate={{
                 rotate: [0, 5, -5, 0],
                 scale: [1, 1.1, 1]
               }}
-              transition={{ 
+              transition={{
                 duration: 2,
                 repeat: Infinity,
                 repeatDelay: 3
@@ -307,9 +306,9 @@ const GalleryPage = () => {
             </motion.div>
             <h3>No Projects Found</h3>
             <p>Try selecting a different category or check back later for new additions.</p>
-            <motion.button 
+            <motion.button
               className={styles.resetFilterButton}
-              onClick={() => setFilter('all')}
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -320,19 +319,20 @@ const GalleryPage = () => {
 
         {/* Footer CTA */}
         {filteredImages.length > 0 && (
-          <motion.div 
+          <motion.div
             className={styles.ctaSection}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
             <p>Like what you see? Let's create something amazing together!</p>
-            <motion.button 
-              className={styles.ctaButton}
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(102, 126, 234, 0.3)" }}
+            <motion.button
+              className={styles.resetFilterButton}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start a Project
+              Start project
             </motion.button>
           </motion.div>
         )}
@@ -355,13 +355,13 @@ const GalleryPage = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
             >
-              <button 
+              <button
                 className={styles.closeButton}
                 onClick={closeModal}
               >
                 ✕
               </button>
-              
+
               <div className={styles.modalImageContainer}>
                 <img
                   src={selectedImage.src}
@@ -369,7 +369,7 @@ const GalleryPage = () => {
                   className={styles.modalImage}
                 />
               </div>
-              
+
               <div className={styles.modalInfo}>
                 <h3>{selectedImage.alt}</h3>
                 {selectedImage.category && (

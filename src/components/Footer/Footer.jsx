@@ -204,7 +204,7 @@ const Footer = () => {
 >
   <div className={styles.timeHeader}>
     <span className={styles.timeIcon}>🕒</span>
-    <span className={styles.timeLabel}>Current Time</span>
+    <span className={styles.timeLabel}>The Present Moment</span>
   </div>
   <div className={styles.timeText}>
     {formatTime(currentTime)}

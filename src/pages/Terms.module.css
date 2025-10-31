@@ -2,7 +2,6 @@
 .terms {
   min-height: 100vh;
   position: relative;
- 
   color: #ffffff;
   overflow-x: hidden;
 }
@@ -57,7 +56,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -82,11 +81,16 @@
 .header {
   text-align: center;
   padding: 4rem 0 2rem;
+  position: relative;
+  z-index: 2; /* FIX START: ensures header content (including back button) is above navbar */
+  margin-top: 3.5rem; /* Adds spacing below fixed navbar */
 }
 
 .backButtonContainer {
   display: inline-flex;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 5; /* ensures button appears above overlays or navbar */
 }
 
 .backButton {
@@ -123,8 +127,7 @@
 }
 
 .titleAccent {
-   background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
-
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -133,8 +136,7 @@
 .titleUnderline {
   width: 100px;
   height: 4px;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
-
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
   margin: 1rem auto;
   border-radius: 2px;
 }
@@ -441,35 +443,39 @@
   .container {
     padding: 1rem;
   }
-  
+
+  .header {
+    margin-top: 4.5rem; /* Extra spacing for mobile navbar overlap fix */
+  }
+
   .title {
     font-size: 2.5rem;
   }
-  
+
   .section {
     padding: 1.5rem;
   }
-  
+
   .sectionHeader {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .licenseGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .disclaimerContent,
   .lawContent {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .limitationsContent {
     grid-template-columns: 1fr;
   }
-  
+
   .modificationInfo {
     grid-template-columns: 1fr;
   }
@@ -478,20 +484,21 @@
 @media (max-width: 480px) {
   .header {
     padding: 2rem 0 1rem;
+    margin-top: 5rem; /* More top gap for very small screens */
   }
-  
+
   .title {
     font-size: 2rem;
   }
-  
+
   .section {
     padding: 1rem;
   }
-  
+
   .licenseCard {
     padding: 1.5rem;
   }
-  
+
   .agreementNote,
   .updateNote,
   .linksWarning {
