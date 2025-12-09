@@ -9,7 +9,7 @@
   align-items: center;
   /* GPU acceleration */
   transform: translateZ(0);
- will-change: transform;
+  will-change: transform;
   contain: layout style paint;
 }
 
@@ -387,16 +387,6 @@
     height: calc(100vh - 180px);
   }
   
-  /* Adjust animation durations for mobile to maintain realistic speeds */
-  .orbitMercury { animation-duration: 12s; }
-  .orbitVenus { animation-duration: 18s; }
-  .orbitEarth { animation-duration: 24s; }
-  .orbitMars { animation-duration: 36s; }
-  .orbitJupiter { animation-duration: 60s; }
-  .orbitSaturn { animation-duration: 90s; }
-  .orbitUranus { animation-duration: 135s; }
-  .orbitNeptune { animation-duration: 180s; }
-  
   /* Slower star animations on mobile */
   .star {
     animation-duration: 12s !important;
@@ -416,16 +406,6 @@
     height: calc(100vh - 150px);
   }
   
-  /* Even slower animations for very small screens */
-  .orbitMercury { animation-duration: 15s; }
-  .orbitVenus { animation-duration: 22s; }
-  .orbitEarth { animation-duration: 30s; }
-  .orbitMars { animation-duration: 45s; }
-  .orbitJupiter { animation-duration: 75s; }
-  .orbitSaturn { animation-duration: 112s; }
-  .orbitUranus { animation-duration: 168s; }
-  .orbitNeptune { animation-duration: 225s; }
-  
   /* Minimal star animations on very small screens */
   .star {
     animation-duration: 15s !important;
@@ -441,40 +421,32 @@
   .solarSystemContainer {
     height: calc(100vh - 180px);
   }
+}
+
+/* Orientation-specific optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .solarSystemContainer {
+    height: calc(100vh - 120px);
+  }
   
-  /* Tablet-specific animation speeds */
-  .orbitMercury { animation-duration: 10s; }
-  .orbitVenus { animation-duration: 15s; }
-  .orbitEarth { animation-duration: 20s; }
-  .orbitMars { animation-duration: 30s; }
-  .orbitJupiter { animation-duration: 50s; }
-  .orbitSaturn { animation-duration: 75s; }
-  .orbitUranus { animation-duration: 112s; }
-  .orbitNeptune { animation-duration: 150s; }
-}
-
-/* Desktop - Original realistic speeds */
-@media (min-width: 1025px) {
-  .orbitMercury { animation-duration: 8s; }
-  .orbitVenus { animation-duration: 12s; }
-  .orbitEarth { animation-duration: 16s; }
-  .orbitMars { animation-duration: 24s; }
-  .orbitJupiter { animation-duration: 40s; }
-  .orbitSaturn { animation-duration: 60s; }
-  .orbitUranus { animation-duration: 90s; }
-  .orbitNeptune { animation-duration: 120s; }
-}
-
-/* Large Desktop - Even more realistic speeds */
-@media (min-width: 1440px) {
-  .orbitMercury { animation-duration: 6s; }
-  .orbitVenus { animation-duration: 10s; }
-  .orbitEarth { animation-duration: 14s; }
-  .orbitMars { animation-duration: 20s; }
-  .orbitJupiter { animation-duration: 35s; }
-  .orbitSaturn { animation-duration: 50s; }
-  .orbitUranus { animation-duration: 75s; }
-  .orbitNeptune { animation-duration: 100s; }
+  .headerSection {
+    padding: 1rem 1rem 0.5rem;
+  }
+  
+  .headerTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Adjust orbit sizes for landscape */
+  .orbitMercury { width: min(120px, 35vh); height: min(120px, 35vh); }
+  .orbitVenus { width: min(160px, 40vh); height: min(160px, 40vh); }
+  .orbitEarth { width: min(200px, 45vh); height: min(200px, 45vh); }
+  .orbitMars { width: min(240px, 50vh); height: min(240px, 50vh); }
+  .orbitJupiter { width: min(300px, 55vh); height: min(300px, 55vh); }
+  .orbitSaturn { width: min(360px, 60vh); height: min(360px, 60vh); }
+  .orbitUranus { width: min(420px, 65vh); height: min(420px, 65vh); }
+  .orbitNeptune { width: min(480px, 70vh); height: min(480px, 70vh); }
 }
 
 /* Scroll Performance Optimization Classes */
@@ -519,32 +491,6 @@
   [class*="orbit"] {
     border-color: rgba(255, 255, 255, 0.3);
   }
-}
-
-/* Orientation-specific optimizations */
-@media (max-width: 768px) and (orientation: landscape) {
-  .solarSystemContainer {
-    height: calc(100vh - 120px);
-  }
-  
-  .headerSection {
-    padding: 1rem 1rem 0.5rem;
-  }
-  
-  .headerTitle {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Adjust orbit sizes for landscape */
-  .orbitMercury { width: min(120px, 35vh); height: min(120px, 35vh); }
-  .orbitVenus { width: min(160px, 40vh); height: min(160px, 40vh); }
-  .orbitEarth { width: min(200px, 45vh); height: min(200px, 45vh); }
-  .orbitMars { width: min(240px, 50vh); height: min(240px, 50vh); }
-  .orbitJupiter { width: min(300px, 55vh); height: min(300px, 55vh); }
-  .orbitSaturn { width: min(360px, 60vh); height: min(360px, 60vh); }
-  .orbitUranus { width: min(420px, 65vh); height: min(420px, 65vh); }
-  .orbitNeptune { width: min(480px, 70vh); height: min(480px, 70vh); }
 }
 
 /* Safe area support for notched devices */

@@ -2,32 +2,42 @@ import React, { useState, useEffect } from "react";
 import styles from "./SolarSystem.module.css";
 
 const SolarSystem = () => {
-  // Generate MUCH more stars with enhanced properties
-  const [stars] = useState(() => 
+  // Set speed multiplier based on device (MOBILE FIX 🚀)
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      document.documentElement.style.setProperty("--speed-multiplier", "1.8"); 
+    } else {
+      document.documentElement.style.setProperty("--speed-multiplier", "1");
+    }
+  }, []);
+
+  // Generate stars
+  const [stars] = useState(() =>
     Array.from({ length: 800 }).map((_, i) => {
-      const starTypes = ['blue', 'white', 'yellow', 'orange', 'purple', 'red'];
+      const starTypes = ["blue", "white", "yellow", "orange", "purple", "red"];
       const starType = starTypes[Math.floor(Math.random() * starTypes.length)];
-      
-      // Create some bright stars and supernova effects
-      const isBright = Math.random() < 0.1; // 10% bright stars
-      const isSupernova = Math.random() < 0.02; // 2% supernova stars
-      
+
+      const isBright = Math.random() < 0.1;
+      const isSupernova = Math.random() < 0.02;
+
       return {
         id: i,
         type: starType,
-        size: Math.random() * 0.8 + 0.2, // Larger stars
+        size: Math.random() * 0.8 + 0.2,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        opacity: Math.random() * 0.9 + 0.1, // Higher opacity
+        opacity: Math.random() * 0.9 + 0.1,
         twinkleDelay: Math.random() * 8,
-        twinkleDuration: Math.random() * 5 + 3, // Longer duration
-        isBright: isBright,
-        isSupernova: isSupernova
-      }
+        twinkleDuration: Math.random() * 5 + 3,
+        isBright,
+        isSupernova,
+      };
     })
   );
 
-  // Meteorites state
+  // Meteorites
   const [meteorites, setMeteorites] = useState([]);
 
   useEffect(() => {
@@ -37,15 +47,15 @@ const SolarSystem = () => {
       y: Math.random() * 30,
       size: Math.random() * 4 + 2,
       duration: Math.random() * 3 + 1,
-      angle: Math.random() * 30 - 15
+      angle: Math.random() * 30 - 15,
     });
 
     const addMeteorite = () => {
       const newMeteorite = createMeteorite();
-      setMeteorites(prev => [...prev, newMeteorite]);
+      setMeteorites((prev) => [...prev, newMeteorite]);
 
       setTimeout(() => {
-        setMeteorites(prev => prev.filter(m => m.id !== newMeteorite.id));
+        setMeteorites((prev) => prev.filter((m) => m.id !== newMeteorite.id));
       }, newMeteorite.duration * 1000);
     };
 
@@ -63,7 +73,7 @@ const SolarSystem = () => {
 
   return (
     <div className={styles.solarSystem}>
-      {/* Header Section - Fixed at Top */}
+      {/* Header */}
       <div className={styles.headerSection}>
         <h1 className={styles.headerTitle}>
           <span className={styles.whiteText}>Celestial </span>
@@ -74,15 +84,15 @@ const SolarSystem = () => {
         </p>
       </div>
 
-      {/* Enhanced Stars Container with MANY more stars */}
+      {/* Stars */}
       <div className={styles.starsContainer}>
-        {stars.map(star => {
-          let starClass = styles.star + ' ' + styles[star.type];
-          if (star.isBright) starClass += ' ' + styles.bright;
-          if (star.isSupernova) starClass += ' ' + styles.supernova;
-          
+        {stars.map((star) => {
+          let starClass = styles.star + " " + styles[star.type];
+          if (star.isBright) starClass += " " + styles.bright;
+          if (star.isSupernova) starClass += " " + styles.supernova;
+
           return (
-            <div 
+            <div
               key={`star-${star.id}`}
               className={starClass}
               style={{
@@ -92,17 +102,17 @@ const SolarSystem = () => {
                 height: `${star.size}px`,
                 opacity: star.opacity,
                 animationDelay: `${star.twinkleDelay}s`,
-                animationDuration: `${star.twinkleDuration}s`
+                animationDuration: `${star.twinkleDuration}s`,
               }}
             />
           );
         })}
       </div>
 
-      {/* Solar System Container - Centered below header */}
+      {/* Solar System */}
       <div className={styles.solarSystemContainer}>
         {/* Meteorites */}
-        {meteorites.map(meteorite => (
+        {meteorites.map((meteorite) => (
           <div
             key={`meteorite-${meteorite.id}`}
             className={styles.meteorite}
@@ -112,25 +122,29 @@ const SolarSystem = () => {
               width: `${meteorite.size}px`,
               height: `${meteorite.size / 3}px`,
               transform: `rotate(${meteorite.angle}deg)`,
-              animation: `meteor ${meteorite.duration}s linear forwards`
+              animation: `meteor ${meteorite.duration}s linear forwards`,
             }}
           />
         ))}
 
-        {/* Sun and planets */}
+        {/* Sun & Planets */}
         <div className={styles.sun}></div>
         <div className={styles.orbitMercury}><div className={styles.planetMercury}></div></div>
         <div className={styles.orbitVenus}><div className={styles.planetVenus}></div></div>
+
         <div className={styles.orbitEarth}>
           <div className={styles.planetEarth}>
             <div className={styles.moonOrbit}><div className={styles.moon}></div></div>
           </div>
         </div>
+
         <div className={styles.orbitMars}><div className={styles.planetMars}></div></div>
         <div className={styles.orbitJupiter}><div className={styles.planetJupiter}></div></div>
+
         <div className={styles.orbitSaturn}>
           <div className={styles.planetSaturn}><div className={styles.ring}></div></div>
         </div>
+
         <div className={styles.orbitUranus}><div className={styles.planetUranus}></div></div>
         <div className={styles.orbitNeptune}><div className={styles.planetNeptune}></div></div>
       </div>
