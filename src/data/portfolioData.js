@@ -14,14 +14,14 @@ import chatapp3 from '../assets/chat-app/chatapp3.jpg';
 import chatapp4 from '../assets/chat-app/chatapp4.jpg';
 import chatapp5 from '../assets/chat-app/chatapp5.jpg';
 import chatapp6 from '../assets/chat-app/chatapp6.jpg';
-import GoTrip0 from '../assets/go-trip/Gotrip0.png';//demo image
-import Gotrip1 from '../assets/go-trip/Gotrip1.png';
-import Gotrip2 from '../assets/go-trip/Gotrip2.png';
-import Gotrip3 from '../assets/go-trip/Gotrip3.png';
-import Gotrip4 from '../assets/go-trip/Gotrip4.png';
-import Gotrip5 from '../assets/go-trip/Gotrip5.png';
-import Gotrip6 from '../assets/go-trip/Gotrip6.png';
-import Gotrip7 from '../assets/go-trip/Gotrip7.png';
+import Gotrip0 from '../assets/go-trip/gotrip0.png';//demo image
+import Gotrip1 from '../assets/go-trip/gotrip1.png';
+import Gotrip2 from '../assets/go-trip/gotrip2.png';
+import Gotrip3 from '../assets/go-trip/gotrip3.png';
+import Gotrip4 from '../assets/go-trip/gotrip4.png';
+import Gotrip5 from '../assets/go-trip/gotrip5.png';
+import Gotrip6 from '../assets/go-trip/gotrip6.png';
+import Gotrip7 from '../assets/go-trip/gotrip7.png';
 import cloneapp from '../assets/projects/cloneapp.png'; //demo image
 import cloneapp1 from '../assets/clone-app/clone1.jpg';
 import cloneapp2 from '../assets/clone-app/clone2.jpg';
@@ -67,7 +67,7 @@ export const projects = [
   shortDescription:
     "AI-powered travel planner with real-time hotels, flights, trains & smart booking redirects",
 
-  image: GoTrip0,
+  image: Gotrip0,
 
  screenshots: [
   { src: Gotrip1, title: "User Login & Signup Authentication" },
