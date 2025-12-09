@@ -71,10 +71,11 @@ const Home = () => {
         <Testimonials />
       </section>
       
+      {/* 
       <section id="solar">
         <SolarSystem />
       </section>
-      
+      */}
       <section id="contact">
         <Contact />
       </section>

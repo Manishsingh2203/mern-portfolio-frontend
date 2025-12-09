@@ -1,4 +1,9 @@
-/* Solar System - Fully Responsive with Realistic Speeds */
+/* Global speed variable */
+:root {
+  --speed-multiplier: 1; /* Desktop default speed */
+}
+
+
 .solarSystem {
   position: relative;
   width: 100vw;
@@ -312,49 +317,57 @@
 .orbitMercury {
   width: min(140px, 40vw);
   height: min(140px, 40vw);
-  animation: optimizedOrbit 8s linear infinite;
+animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitVenus {
   width: min(190px, 50vw);
   height: min(190px, 50vw);
-  animation: optimizedOrbit 12s linear infinite;
+animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitEarth {
   width: min(240px, 60vw);
   height: min(240px, 60vw);
-  animation: optimizedOrbit 16s linear infinite;
+  animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitMars {
   width: min(290px, 65vw);
   height: min(290px, 65vw);
-  animation: optimizedOrbit 24s linear infinite;
+animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitJupiter {
   width: min(360px, 70vw);
   height: min(360px, 70vw);
-  animation: optimizedOrbit 40s linear infinite;
+animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitSaturn {
   width: min(430px, 75vw);
   height: min(430px, 75vw);
-  animation: optimizedOrbit 60s linear infinite;
+animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitUranus {
   width: min(500px, 80vw);
   height: min(500px, 80vw);
-  animation: optimizedOrbit 90s linear infinite;
+  animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 .orbitNeptune {
   width: min(570px, 85vw);
   height: min(570px, 85vw);
-  animation: optimizedOrbit 120s linear infinite;
+ animation: optimizedOrbit calc(8s * var(--speed-multiplier)) linear infinite;
+
 }
 
 /* Optimized Orbit Animation - Consistent speed */
@@ -545,5 +558,21 @@
   
   .star {
     opacity: 0.3;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  :root {
+    --speed-multiplier: 2;  /* Mobile speed becomes 2× slower */
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  :root {
+    --speed-multiplier: 3;
   }
 }
