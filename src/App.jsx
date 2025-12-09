@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+
 import Navbar from './components/Navbar/Navbar';
 import Philosophy from './pages/Philosophy';
 import Home from './pages/Home';
@@ -12,7 +13,8 @@ import AnimatedBackground from './components/AnimatedBackground/AnimatedBackgrou
 import QuickView from './pages/QuickView';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
-//import Loading from './components/Loading/Loading';
+import GoTripPrivate from "./pages/GoTripPrivate"; // ✅ Added
+
 import './styles/globals.css';
 
 function App() {
@@ -23,13 +25,11 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // ADD THIS EFFECT TO PREVENT AUTO-SCROLL
+  // Prevent unwanted scroll restore
   useEffect(() => {
-    // Prevent scroll to bottom on page refresh
     window.history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
-    
-    // Also ensure no hash in URL that might cause scrolling
+
     if (window.location.hash) {
       window.location.hash = '';
     }
@@ -41,48 +41,90 @@ function App() {
         <AnimatedBackground />
         <CursorFollower />
         <Navbar />
+
         <AnimatePresence mode="wait">
           <Routes>
-            <Route path="/" element={
-              <div className="page-container">
-                <Home />
-                <Footer />
-              </div>
-            } />
-            {/* Add Philosophy Route */}
-            <Route path="/philosophy" element={
-              <div className="page-container">
-                <Philosophy />
-                <Footer />
-              </div>
-            } />
-            {/* Add Privacy and Terms Routes */}
-            <Route path="/privacy" element={
-              <div className="page-container">
-                <Privacy />
-                <Footer />
-              </div>
-            } />
-            <Route path="/terms" element={
-              <div className="page-container">
-                <Terms />
-                <Footer />
-              </div>
-            } />
-            <Route path="/quick-view/:id" element={
-              <div className="page-container">
-                <QuickView />
-                <Footer />
-              </div>
-            } />
-            <Route path="/project/:id" element={
-              <div className="page-container">
-                <ProjectPreview />
-                <Footer />
-              </div>
-            } />
+
+            {/* 🏠 Home */}
+            <Route
+              path="/"
+              element={
+                <div className="page-container">
+                  <Home />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* 🧠 Philosophy */}
+            <Route
+              path="/philosophy"
+              element={
+                <div className="page-container">
+                  <Philosophy />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* 🔒 Privacy */}
+            <Route
+              path="/privacy"
+              element={
+                <div className="page-container">
+                  <Privacy />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* 📜 Terms */}
+            <Route
+              path="/terms"
+              element={
+                <div className="page-container">
+                  <Terms />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* 👁 Quick View */}
+            <Route
+              path="/quick-view/:id"
+              element={
+                <div className="page-container">
+                  <QuickView />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* 🔍 Project Preview */}
+            <Route
+              path="/project/:id"
+              element={
+                <div className="page-container">
+                  <ProjectPreview />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* 🔒 GoTrip Private Route (NEW) */}
+            <Route
+              path="/gotrip-private"
+              element={
+                <div className="page-container">
+                  <GoTripPrivate />
+                  <Footer />
+                </div>
+              }
+            />
+
           </Routes>
         </AnimatePresence>
+
         <Chatbot />
       </div>
     </Router>

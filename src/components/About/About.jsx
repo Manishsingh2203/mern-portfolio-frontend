@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './About.module.css';
-import avatar from '../../assets/manishavtar1.png'; // adjust path based on folder depth
+const avatar = "/manishavtar.png";
+// adjust path based on folder depth
 
 
 const About = () => {

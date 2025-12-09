@@ -9,7 +9,7 @@
   align-items: center;
   /* GPU acceleration */
   transform: translateZ(0);
-  will-change: transform;
+ will-change: transform;
   contain: layout style paint;
 }
 

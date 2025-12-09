@@ -267,7 +267,7 @@
   height: 170px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  background-image: url('/manishavtar.png');
+  background-image: url('../../assets/manishavtar1.png');
   background-size: cover;
   background-position: center;
   border: 3px solid rgba(255, 255, 255, 0.1);

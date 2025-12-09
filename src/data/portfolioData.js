@@ -14,13 +14,14 @@ import chatapp3 from '../assets/chat-app/chatapp3.jpg';
 import chatapp4 from '../assets/chat-app/chatapp4.jpg';
 import chatapp5 from '../assets/chat-app/chatapp5.jpg';
 import chatapp6 from '../assets/chat-app/chatapp6.jpg';
-import hotelapp from '../assets/projects/hotelapp1.png';//demo image
-import hotelapp1 from '../assets/hotel-booking/Hotel1.png';
-import hotelapp2 from '../assets/hotel-booking/Hotel2.png';
-import hotelapp3 from '../assets/hotel-booking/Hotel3.png';
-import hotelapp4 from '../assets/hotel-booking/Hotel4.png';
-import hotelapp5 from '../assets/hotel-booking/Hotel5.png';
-import hotelapp6 from '../assets/hotel-booking/Hotel6.png';
+import GoTrip0 from '../assets/go-trip/Gotrip0.png';//demo image
+import Gotrip1 from '../assets/go-trip/Gotrip1.png';
+import Gotrip2 from '../assets/go-trip/Gotrip2.png';
+import Gotrip3 from '../assets/go-trip/Gotrip3.png';
+import Gotrip4 from '../assets/go-trip/Gotrip4.png';
+import Gotrip5 from '../assets/go-trip/Gotrip5.png';
+import Gotrip6 from '../assets/go-trip/Gotrip6.png';
+import Gotrip7 from '../assets/go-trip/Gotrip7.png';
 import cloneapp from '../assets/projects/cloneapp.png'; //demo image
 import cloneapp1 from '../assets/clone-app/clone1.jpg';
 import cloneapp2 from '../assets/clone-app/clone2.jpg';
@@ -55,8 +56,92 @@ export const skills = [
 ];
 
 export const projects = [
+
+{
+  id: 1,
+  title: "GoTrip – AI Powered Travel Planner & Real-Time Booking Platform",
+
+  description:
+    "GoTrip is an advanced MERN + AI powered travel planning platform that fetches real-time hotel, flight, and train data from live travel APIs. Users can explore real destinations or generate AI-created fictional places, plan complete trips, and get redirected to official booking providers (like IRCTC, MakeMyTrip, Agoda, etc.) for secure reservations. The platform also detects the user’s current city and recommends nearby attractions, food spots, and local activities, creating a fully personalized travel experience.",
+
+  shortDescription:
+    "AI-powered travel planner with real-time hotels, flights, trains & smart booking redirects",
+
+  image: GoTrip0,
+
+ screenshots: [
+  { src: Gotrip1, title: "User Login & Signup Authentication" },
+  { src: Gotrip2, title: "Home Page – Trip Planner with Hotel, Flight & Train Form" },
+  { src: Gotrip3, title: "AI Destination Search – Explore Any Place Worldwide" },
+  { src: Gotrip4, title: "Popular & Recommended Places Based on User Search" },
+  { src: Gotrip5, title: "Place Details – Attractions, Spots & Travel Insights" },
+  { src: Gotrip6, title: "Real-Time Flight Search & Suggestions" },
+  { src: Gotrip7, title: "Train Search – Live Availability & Booking Redirect" }
+],
+
+
+  features: [
+    "AI-powered trip planning with personalized multi-day itineraries",
+    "Real-time hotel, flight, and train data using live travel APIs",
+    "Redirect users to official hotel/flight/train provider websites for secure bookings",
+    "Detect user's current city and recommend top nearby attractions and local spots",
+    "Generate fictional yet realistic destinations if user dislikes DB results",
+    "Advanced search with filters, budget selection & AI relevance ranking",
+    "Secure authentication with JWT & personalized user profiles",
+    "Dynamic pricing, seasonal offers & discount management",
+    "Admin dashboard for managing destinations, listings, and offers",
+    "Automated email notifications for booking confirmation"
+  ],
+
+  technologies: [
+    "React", "Node.js", "MongoDB", "Express",
+    "GemniAI API", "Stripe", "JWT", "Mongoose", "Brevo"
+  ],
+
+  githubUrl: "/gotrip-private",
+
+  projectType: "screenshots",
+  category: "fullstack",
+  timeTaken: "10 days",
+  complexity: "Advanced",
+  teamSize: "Solo",
+  status: "Completed",
+
+  highlights: [
+    "Real Travel API Integration (Hotels, Flights, Trains)",
+    "Secure redirection to official travel provider sites",
+    "User city detection & local attraction recommendations",
+    "AI Trip Planner Engine with itinerary generation",
+    "AI-based fictional destination generator",
+    "Advanced filtering & personalized travel suggestions",
+    "Dynamic Pricing + Seasonal Offers",
+    "Admin Management Panel"
+  ],
+
+  challenges: [
+    "Integrating real travel APIs for accurate hotel/flight/train data",
+    "Creating reliable redirection flows for external booking providers",
+    "Building AI-powered city generation & itinerary planning",
+    "Maintaining real-time availability & preventing booking conflicts",
+    "Optimizing search speed with filters + AI scoring",
+    "Handling secure authentication and data privacy",
+    "Designing dynamic pricing & seasonal discount logic",
+    "Building a responsive UI for all device sizes",
+    "Efficient database structuring for trips, users, bookings & destinations"
+  ],
+
+  achievements: [
+    "Enabled users to access real-time hotel, flight, and train data instantly",
+    "Achieved seamless booking redirection to trusted travel platforms",
+    "Created a location-aware recommendation system for local attractions",
+    "Reduced trip planning time by 70% using AI automation",
+    "Developed a scalable admin dashboard for travel and pricing management"
+  ]
+},
+
+
   {
-    id: 1,
+    id: 2,
     title: 'E-Commerce Platform',
     description: 'A full-stack e-commerce solution with React, Node.js, and MongoDB featuring user authentication, payment integration, and admin dashboard.',
     shortDescription: 'Complete online shopping platform with secure payments and admin management',
@@ -107,7 +192,7 @@ export const projects = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: 'Real Time Chat App',
     description: 'A real-time chat application with user authentication, group chats, and media sharing features built with React and Firebase.',
     shortDescription: 'Instant messaging platform with real-time communication and media sharing',
@@ -152,55 +237,6 @@ export const projects = [
       'Achieved <100ms message delivery',
       'Supported 50+ concurrent users',
       'Implemented end-to-end encryption'
-    ]
-  },
-  {
-    id: 3,
-    title: 'Hotel Booking App',
-    description: 'A comprehensive hotel booking application with user authentication, room management, and payment integration for seamless travel planning.',
-    shortDescription: 'Hotel reservation system with booking management and payment processing',
-    image:  hotelapp,
-    screenshots: [
-      { src: hotelapp1, title: 'Home Page Of Hotel Web App' },
-      { src: hotelapp2, title: 'Hotel Search & Filtering' },
-      { src: hotelapp3, title: 'User Dashboard & Bookings' }, 
-      { src: hotelapp4, title: 'Booking Confirmation & Receipt ' },
-      { src: hotelapp5, title: 'Room Selection & Details' },
-      { src: hotelapp6, title: 'Choose According to Preferences' }
-    ],
-    features: [
-      ' Check real-time room availability to prevent double bookings.',
-  ' Easily book rooms through a user-friendly interface.',
-  ' Secure online payments with multiple payment options.',
-  ' Process cancellations and refunds smoothly and reliably.',
-  ' Fast and accurate room search with filters and sorting.',
-  ' Secure login/signup with personalized user profiles.',
-  ' Apply seasonal offers, promotions, and variable pricing.',
-  'Booking Confirmation Notifications.',
-    ],
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe', 'JWT', 'Mongoose', 'Nodemailer'],
-    githubUrl: 'https://github.com/Manishsingh2203',
-    projectType: 'screenshots',
-    category: 'fullstack',
-    timeTaken: '20 days',
-    complexity: 'Advanced',
-    teamSize: 'Solo',
-    status: 'Completed',
-    highlights: ['Booking System', 'Payment Gateway', 'Search Filters', 'Admin Management'],
-    challenges: [
-       'Room availability tracking to prevent double bookings',
-  'Payment gateway integration and refund handling',
-  'Search algorithm optimization for fast and accurate results',
-  'User authentication and secure profile management',
-  'Dynamic pricing and seasonal discounts implementation',
-  'Handling special requests and booking customizations',
-  'Responsive design for desktop, tablet, and mobile devices',
-  'Efficient database queries for rooms, reservations, and users',
-    ],
-    achievements: [
-      'Reduced booking time by 60%',
-      'Implemented secure payment processing',
-      'Created responsive admin dashboard'
     ]
   },
   {
