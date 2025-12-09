@@ -14,14 +14,14 @@ import chatapp3 from '../assets/chat-app/chatapp3.jpg';
 import chatapp4 from '../assets/chat-app/chatapp4.jpg';
 import chatapp5 from '../assets/chat-app/chatapp5.jpg';
 import chatapp6 from '../assets/chat-app/chatapp6.jpg';
-import Gotrip0 from '../assets/go-trip/gotrip0.png';//demo image
-import Gotrip1 from '../assets/go-trip/gotrip1.png';
-import Gotrip2 from '../assets/go-trip/gotrip2.png';
-import Gotrip3 from '../assets/go-trip/gotrip3.png';
-import Gotrip4 from '../assets/go-trip/gotrip4.png';
-import Gotrip5 from '../assets/go-trip/gotrip5.png';
-import Gotrip6 from '../assets/go-trip/gotrip6.png';
-import Gotrip7 from '../assets/go-trip/gotrip7.png';
+import gotrip0 from '../assets/go-trip/gotrip0.png';//demo image
+import gotrip1 from '../assets/go-trip/gotrip1.png';
+import gotrip2 from '../assets/go-trip/gotrip2.png';
+import gotrip3 from '../assets/go-trip/gotrip3.png';
+import gotrip4 from '../assets/go-trip/gotrip4.png';
+import gotrip5 from '../assets/go-trip/gotrip5.png';
+import gotrip6 from '../assets/go-trip/gotrip6.png';
+import gotrip7 from '../assets/go-trip/gotrip7.png';
 import cloneapp from '../assets/projects/cloneapp.png'; //demo image
 import cloneapp1 from '../assets/clone-app/clone1.jpg';
 import cloneapp2 from '../assets/clone-app/clone2.jpg';
@@ -67,16 +67,16 @@ export const projects = [
   shortDescription:
     "AI-powered travel planner with real-time hotels, flights, trains & smart booking redirects",
 
-  image: Gotrip0,
+  image: gotrip0,
 
  screenshots: [
-  { src: Gotrip1, title: "User Login & Signup Authentication" },
-  { src: Gotrip2, title: "Home Page – Trip Planner with Hotel, Flight & Train Form" },
-  { src: Gotrip3, title: "AI Destination Search – Explore Any Place Worldwide" },
-  { src: Gotrip4, title: "Popular & Recommended Places Based on User Search" },
-  { src: Gotrip5, title: "Place Details – Attractions, Spots & Travel Insights" },
-  { src: Gotrip6, title: "Real-Time Flight Search & Suggestions" },
-  { src: Gotrip7, title: "Train Search – Live Availability & Booking Redirect" }
+  { src: gotrip1, title: "User Login & Signup Authentication" },
+  { src: gotrip2, title: "Home Page – Trip Planner with Hotel, Flight & Train Form" },
+  { src: gotrip3, title: "AI Destination Search – Explore Any Place Worldwide" },
+  { src: gotrip4, title: "Popular & Recommended Places Based on User Search" },
+  { src: gotrip5, title: "Place Details – Attractions, Spots & Travel Insights" },
+  { src: gotrip6, title: "Real-Time Flight Search & Suggestions" },
+  { src: gotrip7, title: "Train Search – Live Availability & Booking Redirect" }
 ],
 
 
