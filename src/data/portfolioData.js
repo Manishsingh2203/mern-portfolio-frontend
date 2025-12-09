@@ -14,6 +14,20 @@ import chatapp3 from '../assets/chat-app/chatapp3.jpg';
 import chatapp4 from '../assets/chat-app/chatapp4.jpg';
 import chatapp5 from '../assets/chat-app/chatapp5.jpg';
 import chatapp6 from '../assets/chat-app/chatapp6.jpg';
+
+import gotrip0 from '../assets/gotrip/gotrip0.jpg';
+import gotrip1 from '../assets/gotrip/gotrip1.jpg';
+import gotrip2 from '../assets/gotrip/gotrip2.jpg';
+import gotrip3 from '../assets/gotrip/gotrip3.jpg';
+import gotrip4 from '../assets/gotrip/gotrip4.jpg';
+import gotrip5 from '../assets/gotrip/gotrip5.jpg';
+import gotrip6 from '../assets/gotrip/gotrip6.jpg';
+import gotrip7 from '../assets/gotrip/gotrip7.jpg';
+
+
+
+
+/*
 import gotrip0 from '../assets/go-trip/gotrip0.png';//demo image
 import gotrip1 from '../assets/go-trip/gotrip1.png';
 import gotrip2 from '../assets/go-trip/gotrip2.png';
@@ -22,6 +36,9 @@ import gotrip4 from '../assets/go-trip/gotrip4.png';
 import gotrip5 from '../assets/go-trip/gotrip5.png';
 import gotrip6 from '../assets/go-trip/gotrip6.png';
 import gotrip7 from '../assets/go-trip/gotrip7.png';
+*/
+
+
 import cloneapp from '../assets/projects/cloneapp.png'; //demo image
 import cloneapp1 from '../assets/clone-app/clone1.jpg';
 import cloneapp2 from '../assets/clone-app/clone2.jpg';
